@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Anima App</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                content: [],
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            open_sans: ["Open Sans", "sans-serif"],
+                            webflow_icons: ["webflow-icons"],
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <style>
+            @font-face {
+                /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
+                font-family: "webflow-icons";
+                font-weight: normal;
+                font-style: normal;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format("woff2")');
+                font-weight: 300;
+                font-style: italic;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format("woff2")');
+                font-weight: 400;
+                font-style: italic;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format("woff2")');
+                font-weight: 600;
+                font-style: italic;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format("woff2")');
+                font-weight: 700;
+                font-style: italic;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memtYaGs126MiZpBA-UFUIcVXSCEkx2cmqvXlWqWuU6F.woff2') format("woff2")');
+                font-weight: 800;
+                font-style: italic;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format("woff2")');
+                font-weight: 300;
+                font-style: normal;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format("woff2")');
+                font-weight: 400;
+                font-style: normal;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format("woff2")');
+                font-weight: 600;
+                font-style: normal;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format("woff2")');
+                font-weight: 700;
+                font-style: normal;
+            }
+        </style>
+
+        <style>
+            @font-face {
+                font-family: "Open Sans";
+                src: url("url("https://fonts.gstatic.com/s/opensans/v43/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2') format("woff2")');
+                font-weight: 800;
+                font-style: normal;
+            }
+        </style>
+    </head>
+    <body
+        class="text-slate-900 text-base not-italic normal-nums font-normal accent-auto bg-white box-border block tracking-[normal] leading-6 list-outside list-disc min-h-full text-start indent-[0px] normal-case visible border-separate font-open_sans"
+    >
+        <div class="sticky box-border z-[99999] top-[0%] inset-x-[0%]">
+            <section class="relative bg-white box-border">
+                <div class="box-border px-[5%]">
+                    <div class="items-center box-border flex flex-col justify-start pt-1 pb-0 md:flex-row md:pb-1">
+                        <div class="relative items-start box-border flex basis-[0%] flex-col grow justify-between mr-4 md:items-center md:flex-row md:mr-0">
+                            <div class="relative text-black text-base font-bold items-center box-border gap-x-2 flex flex-col leading-6 text-left z-[900] mr-auto left-[0%] top-[0%] md:text-[13.6px] md:leading-[20.4px]">
+                                <div role="button" class="relative text-neutral-800 text-base box-border leading-6 text-nowrap align-top mb-2 mx-auto pl-5 pr-10 py-2 left-0 top-0 md:text-[13.6px] md:leading-[20.4px] md:mb-0">
+                                    <div
+                                        class="absolute text-base font-normal box-border h-4 leading-4 text-nowrap w-4 ml-auto mr-5 my-auto right-0 inset-y-0 font-webflow_icons md:text-[13.6px] md:h-[13.6px] md:leading-[13.6px] md:w-[13.6px] before:accent-auto before:text-neutral-800 before:text-base before:not-italic before:normal-nums before:font-normal before:tracking-[normal] before:leading-4 before:list-outside before:list-disc before:text-left before:indent-[0px] before:normal-case before:text-nowrap before:visible before:border-separate before:font-webflow_icons before:md:text-[13.6px] before:md:leading-[13.6px]"
+                                    ></div>
+                                    <div class="text-base box-border leading-6 text-nowrap md:text-[13.6px] md:leading-[20.4px]">Language</div>
+                                </div>
+                                <nav class="absolute text-base bg-zinc-300 box-border hidden leading-6 min-w-full z-[4] left-[0%] top-[0%] md:text-[13.6px] md:leading-[20.4px]">
+                                    <div class="text-base box-border leading-6 md:text-[13.6px] md:leading-[20.4px]">
+                                        <div role="list" class="text-base box-border leading-6 overflow-hidden md:text-[13.6px] md:leading-[20.4px] md:overflow-visible">
+                                            <div role="listitem" class="text-base box-border leading-6 md:text-[13.6px] md:leading-[20.4px]">
+                                                <a href="/enrollment" class="text-sky-600 text-base box-border block leading-6 underline px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:px-4 md:py-2">English</a>
+                                            </div>
+                                            <div role="listitem" class="text-base box-border leading-6 md:text-[13.6px] md:leading-[20.4px]">
+                                                <a href="/es-us/enrollment" class="text-base box-border block leading-6 underline px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:px-4 md:py-2">Spanish (United States)</a>
+                                            </div>
+                                            <div role="listitem" class="text-base box-border leading-6 md:text-[13.6px] md:leading-[20.4px]">
+                                                <a href="/so/enrollment" class="text-base box-border block leading-6 underline px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:px-4 md:py-2">Somali</a>
+                                            </div>
+                                            <div role="listitem" class="text-base box-border leading-6 md:text-[13.6px] md:leading-[20.4px]">
+                                                <a href="/fr/enrollment" class="text-base box-border block leading-6 underline px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:px-4 md:py-2">French (Standard)</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="items-center box-border gap-x-2 hidden justify-end min-h-0 min-w-0 gap-y-2 md:gap-x-0 md:flex md:min-h-[auto] md:min-w-[auto] md:gap-y-0">
+                                <div class="items-start box-border flex flex-col justify-start min-h-0 min-w-0 mb-2 md:[align-items:normal] md:block md:flex-row md:justify-normal md:min-h-[auto] md:min-w-[auto] md:mb-0">
+                                    <form class="items-center box-border flex mr-2">
+                                        <input
+                                            name="query"
+                                            placeholder="Search…"
+                                            type="search"
+                                            class="text-zinc-800 text-xs box-border block h-[38px] leading-[17.1428px] min-h-0 min-w-40 align-middle w-full border border-stone-300 px-3 py-2 border-solid md:min-h-[auto] md:min-w-[auto]"
+                                        />
+                                        <input type="submit" value="search" class="text-white text-xs bg-sky-600 box-border block leading-[18px] min-h-0 min-w-0 text-center text-nowrap px-[15px] py-[9px] md:min-h-[auto] md:min-w-[auto]" />
+                                    </form>
+                                </div>
+                                <div class="relative box-border inline-block min-h-0 min-w-0 text-left w-full z-[1] mx-auto md:block md:min-h-[auto] md:min-w-[auto] md:w-auto">
+                                    <div role="button" class="relative text-neutral-800 box-border inline-block text-nowrap align-top mx-auto"></div>
+                                </div>
+                                <div class="relative box-border inline-block min-h-0 min-w-0 text-left w-full z-[1] mx-auto md:block md:min-h-[auto] md:min-w-[auto] md:w-auto">
+                                    <div role="button" class="relative text-neutral-800 box-border inline-block text-nowrap align-top mx-auto"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-start box-border gap-x-3 grid auto-cols-max grid-flow-col grid-cols-[max-content] grid-rows-[auto] justify-items-start gap-y-0">
+                            <a href="https://www.facebook.com/partnersmn" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                <div
+                                    class="text-blue-600 text-[15px] box-border h-6 leading-[22.5px] w-6 md:text-sm md:leading-[21px] before:accent-auto before:text-blue-600 before:table before:text-[15px] before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[22.5px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-sm before:md:leading-[21px] after:accent-auto after:clear-both after:text-blue-600 after:table after:text-[15px] after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[22.5px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-sm after:md:leading-[21px]"
+                                >
+                                    <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-3.svg" alt="Icon" class="text-[15px] box-border h-full leading-[22.5px] w-full md:text-sm md:leading-[21px]" />
+                                </div>
+                            </a>
+                            <a href="https://www.instagram.com/partners_in_excellence/" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                <div
+                                    class="text-fuchsia-700 box-border h-6 w-6 before:accent-auto before:text-fuchsia-700 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-fuchsia-700 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                >
+                                    <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-4.svg" alt="Icon" class="box-border h-6 w-6" />
+                                </div>
+                            </a>
+                            <a href="#" class="text-black text-sm items-center box-border hidden leading-[21px] max-w-full">
+                                <div
+                                    class="text-sky-500 box-border h-6 w-6 before:accent-auto before:text-sky-500 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-sky-500 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                >
+                                    <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-5.svg" alt="Icon" class="box-border h-full w-full" />
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/company/partners-in-excellence/" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                <div
+                                    class="text-sky-600 box-border h-6 w-6 before:accent-auto before:text-sky-600 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-sky-600 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                >
+                                    <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-6.svg" alt="Icon" class="box-border h-6 w-6" />
+                                </div>
+                            </a>
+                            <a href="https://www.youtube.com/@partnersmn2539" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                <div
+                                    class="text-red-600 box-border h-6 w-6 before:accent-auto before:text-red-600 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-red-600 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                >
+                                    <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-7.svg" alt="Icon" class="box-border h-full w-full" />
+                                </div>
+                            </a>
+                            <a href="https://www.tiktok.com/@partners_in_excellence" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                <div
+                                    class="text-black box-border h-6 w-6 before:accent-auto before:text-black before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-black after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                >
+                                    <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-8.svg" alt="Icon" class="box-border h-full w-full" />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div
+                role="banner"
+                class="sticky items-center bg-zinc-100 box-border flex min-h-16 w-full z-[80] px-[5%] md:min-h-[72px] before:accent-auto before:text-slate-900 before:table before:text-base before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-6 before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-slate-900 after:table after:text-base after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-6 after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+            >
+                <div class="items-center box-border flex h-full justify-between w-full mx-auto">
+                    <a href="/" aria-label="home" class="relative text-zinc-800 box-border block float-left">
+                        <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/67925f5a43542eacb2f09ee0_Frame_9_(2).avif" alt="" class="box-border inline-block max-w-full w-[167px] py-[5%]" />
+                    </a>
+                    <nav
+                        role="navigation"
+                        class="absolute items-center bg-zinc-100 border-l-slate-900 border-r-slate-900 border-t-slate-900 box-border hidden float-none h-[1000px] min-h-0 min-w-0 overflow-auto pt-4 pb-24 px-[5%] border-b-black border-b md:static md:bg-transparent md:border-b-slate-900 md:flex md:float-right md:h-auto md:min-h-[auto] md:min-w-[auto] md:overflow-visible md:p-0 md:border-b-0"
+                    >
+                        <a
+                            href="/about"
+                            class="relative text-black text-base font-bold box-border block leading-6 min-h-0 min-w-0 text-left align-top mx-auto px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:min-h-[auto] md:min-w-[auto] md:px-4 md:py-2"
+                        >
+                            About
+                        </a>
+                        <a
+                            href="/careers"
+                            class="relative text-black text-base font-bold box-border block leading-6 min-h-0 min-w-0 text-left align-top mx-auto px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:min-h-[auto] md:min-w-[auto] md:px-4 md:py-2"
+                        >
+                            Careers
+                        </a>
+                        <a
+                            href="/enrollment"
+                            class="relative text-sky-600 text-base font-bold box-border block leading-6 min-h-0 min-w-0 text-left align-top mx-auto px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:min-h-[auto] md:min-w-[auto] md:px-4 md:py-2"
+                        >
+                            Enrollment
+                        </a>
+                        <a
+                            href="/events"
+                            class="relative text-black text-base font-bold box-border block leading-6 min-h-0 min-w-0 text-left align-top mx-auto px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:min-h-[auto] md:min-w-[auto] md:px-4 md:py-2"
+                        >
+                            Events
+                        </a>
+                        <a
+                            href="/locations"
+                            class="relative text-black text-base font-bold box-border block leading-6 min-h-0 min-w-0 text-left align-top mx-auto px-0 py-3 md:text-[13.6px] md:leading-[20.4px] md:min-h-[auto] md:min-w-[auto] md:px-4 md:py-2"
+                        >
+                            Locations
+                        </a>
+                        <div class="relative text-lg box-border inline-block leading-[27px] min-h-0 min-w-0 text-left w-full z-[900] mx-auto md:text-base md:block md:leading-6 md:min-h-[auto] md:min-w-[auto] md:w-auto">
+                            <div role="button" class="relative text-black text-base font-bold items-center box-border gap-x-2 flex leading-6 text-nowrap align-top mx-auto pl-0 pr-4 py-3 md:text-[13.6px] md:leading-[20.4px] md:pl-4 md:py-2">
+                                <div class="text-base box-border leading-6 min-h-0 min-w-0 text-nowrap md:text-[13.6px] md:leading-[20.4px] md:min-h-[auto] md:min-w-[auto]">Services</div>
+                                <div
+                                    class="text-base items-center box-border flex flex-col h-4 justify-center leading-6 min-h-0 min-w-0 text-nowrap w-4 right-[0%] md:text-[13.6px] md:leading-[20.4px] md:min-h-[auto] md:min-w-[auto] md:right-auto before:accent-auto before:text-black before:table before:text-base before:not-italic before:normal-nums before:font-bold before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-6 before:list-outside before:list-disc before:min-h-0 before:min-w-0 before:text-left before:indent-[0px] before:normal-case before:text-nowrap before:visible before:border-separate before:font-open_sans before:md:text-[13.6px] before:md:leading-[20.4px] before:md:min-h-[auto] before:md:min-w-[auto] after:accent-auto after:clear-both after:text-black after:table after:text-base after:not-italic after:normal-nums after:font-bold after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-6 after:list-outside after:list-disc after:min-h-0 after:min-w-0 after:text-left after:indent-[0px] after:normal-case after:text-nowrap after:visible after:border-separate after:font-open_sans after:md:text-[13.6px] after:md:leading-[20.4px] after:md:min-h-[auto] after:md:min-w-[auto]"
+                                >
+                                    <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-9.svg" alt="Icon" class="text-base box-border h-full leading-6 text-nowrap w-full md:text-[13.6px] md:leading-[20.4px]" />
+                                </div>
+                            </div>
+                            <nav class="static text-lg bg-zinc-300 box-border hidden h-0 leading-[27px] min-w-full opacity-100 overflow-hidden md:absolute md:text-base md:h-auto md:leading-6 md:opacity-0 md:overflow-visible">
+                                <a href="/services" class="relative text-black text-base font-bold box-border block leading-6 text-nowrap align-top mx-auto pl-[2%] pr-0 py-3 md:text-[14.4px] md:leading-[21.6px] md:px-4 md:py-2">
+                                    All Services
+                                </a>
+                                <a href="/aba-abv" class="relative text-black text-base font-bold box-border block leading-6 text-nowrap align-top mx-auto pl-[2%] pr-0 py-3 md:text-[14.4px] md:leading-[21.6px] md:px-4 md:py-2">
+                                    ABA/AVB Therapy
+                                </a>
+                                <a href="/feeding-therapy" class="relative text-black text-base font-bold box-border block leading-6 text-nowrap align-top mx-auto pl-[2%] pr-0 py-3 md:text-[14.4px] md:leading-[21.6px] md:px-4 md:py-2">
+                                    Feeding Therapy
+                                </a>
+                                <a href="/occupational-therapy" class="relative text-black text-base font-bold box-border block leading-6 text-nowrap align-top mx-auto pl-[2%] pr-0 py-3 md:text-[14.4px] md:leading-[21.6px] md:px-4 md:py-2">
+                                    Occupational Therapy
+                                </a>
+                                <a
+                                    href="/speech-language-pathology"
+                                    class="relative text-black text-base font-bold box-border block leading-6 text-nowrap align-top mx-auto pl-[2%] pr-0 py-3 md:text-[14.4px] md:leading-[21.6px] md:px-4 md:py-2"
+                                >
+                                    Speech Therapy
+                                </a>
+                                <a href="/bridges" class="relative text-black text-base font-bold box-border block leading-6 text-nowrap align-top mx-auto pl-[2%] pr-0 py-3 md:text-[14.4px] md:leading-[21.6px] md:px-4 md:py-2">Bridges</a>
+                                <a href="/case-management" class="relative text-black text-base font-bold box-border block leading-6 text-nowrap align-top mx-auto pl-[2%] pr-0 py-3 md:text-[14.4px] md:leading-[21.6px] md:px-4 md:py-2">
+                                    Case Management
+                                </a>
+                            </nav>
+                        </div>
+                        <div
+                            class="items-stretch box-border gap-x-4 flex flex-col auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto_auto] min-h-0 min-w-0 gap-y-4 ml-0 mt-6 md:items-center md:flex-row md:grid-cols-[1fr_1fr] md:grid-rows-[auto] md:min-h-[auto] md:min-w-[auto] md:ml-4 md:mt-0"
+                        >
+                            <a href="#" class="text-black font-bold box-border block min-h-0 min-w-0 text-center border border-cyan-500 px-5 py-2 rounded-[10px] border-solid md:min-h-[auto] md:min-w-[auto]">952-746-5350</a>
+                            <a href="/contact-us" class="text-white font-bold bg-sky-600 box-border block min-h-0 min-w-0 text-center border border-cyan-500 px-5 py-2 rounded-[10px] border-solid md:min-h-[auto] md:min-w-[auto]">
+                                Contact Us
+                            </a>
+                        </div>
+                    </nav>
+                    <div aria-label="menu" role="button" class="relative text-2xl box-border block float-right leading-9 min-h-[auto] min-w-[auto] md:hidden md:min-h-0 md:min-w-0">
+                        <div class="items-center box-border flex flex-col h-12 justify-center w-12 -mr-2 md:[align-items:normal] md:block md:flex-row md:h-auto md:justify-normal md:w-auto md:mr-0">
+                            <div class="bg-black box-border h-0.5 min-h-[auto] min-w-[auto] w-6 md:bg-transparent md:h-auto md:min-h-0 md:min-w-0 md:w-auto"></div>
+                            <div
+                                class="items-center bg-black box-border flex h-0.5 justify-center min-h-[auto] min-w-[auto] w-6 my-1.5 md:[align-items:normal] md:bg-transparent md:block md:h-auto md:justify-normal md:min-h-0 md:min-w-0 md:w-auto md:my-0"
+                            >
+                                <div class="box-border h-0 min-h-[auto] min-w-[auto] w-1 md:h-auto md:min-h-0 md:min-w-0 md:w-auto"></div>
+                            </div>
+                            <div class="bg-black box-border h-0.5 min-h-[auto] min-w-[auto] w-6 md:bg-transparent md:h-auto md:min-h-0 md:min-w-0 md:w-auto"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute box-border hidden w-full overflow-hidden top-full inset-x-0"></div>
+            </div>
+        </div>
+        <header class="relative text-white bg-lime-400 box-border z-[5]">
+            <div class="box-border px-[10%]">
+                <div class="box-border max-w-screen-xl w-full mx-auto">
+                    <div class="items-center box-border flex justify-start max-h-[960px] min-h-[1000px]">
+                        <div class="text-black box-border py-16 md:py-28">
+                            <div class="box-border max-w-[560px] w-full">
+                                <div class="relative box-border z-[2] mb-5 md:mb-8"><h1 class="text-white font-light box-border tracking-[1px] text-left capitalize">Partners In Excellence | Enrollment</h1></div>
+                                <div class="relative box-border z-[2] mb-5 md:mb-8">
+                                    <h1 class="text-white text-[40px] font-bold box-border leading-[48px] text-left md:text-[56px] md:leading-[67.2px]">Here&#39;s How to Get Started with Enrollment</h1>
+                                </div>
+                                <p class="text-white text-base font-light box-border leading-6 text-left md:text-lg md:leading-[27px]">You&#39;ll find a step by step guide to applying.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))] box-border z-[-1] mx-[5%] my-[3%] rounded-[25px] inset-[0%]">
+                <div class="absolute bg-slate-900/60 box-border z-[1] rounded-[25px] inset-[0%]"></div>
+                <img
+                    sizes="(max-width: 2000px) 100vw, 2000px"
+                    alt=""
+                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/676ecb134853067e49fb876e_15.webp"
+                    class="absolute box-border h-full max-w-full object-cover w-full rounded-[25px] inset-[0%]"
+                />
+            </div>
+            <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/676f08284b863915ae43a356_hero-icon.svg" alt="" class="absolute bottom-[-16%] box-border max-w-[65%] w-[311px] z-[-1] right-[0%] md:max-w-full md:z-[1]" />
+        </header>
+        <section class="relative bg-slate-100 border-b-slate-200 border-l-slate-900 border-r-slate-900 border-t-slate-900 box-border px-[15px] py-[60px] border-b md:px-[30px] md:py-20">
+            <div class="box-border max-w-none w-full mx-auto md:max-w-[940px]">
+                <div class="items-start box-border flex flex-col justify-start -mb-10 md:items-center md:flex-row md:justify-between md:mb-0">
+                    <div class="items-start box-border flex flex-col justify-start max-w-full mb-10 md:max-w-[46%] md:mb-0">
+                        <div class="box-border">
+                            <a href="#" aria-label="open lightbox" class="relative text-black items-center box-border flex justify-center max-w-full underline w-full">
+                                <img
+                                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/67d87d05367326ca68d608ca_Enrollment_Video_Cover.jpg"
+                                    sizes="(max-width: 1512px) 100vw, 1512px"
+                                    alt=""
+                                    class="box-border h-full max-w-full object-cover w-full rounded-[20px] md:h-auto md:w-auto"
+                                />
+                                <div class="absolute text-white items-center box-border flex justify-center z-[2]">
+                                    <div
+                                        class="items-center box-border flex flex-col h-20 justify-center w-20 before:accent-auto before:text-white before:table before:text-base before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-6 before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-white after:table after:text-base after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-6 after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                    >
+                                        <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-10.svg" alt="Icon" class="box-border h-full w-full" />
+                                    </div>
+                                </div>
+                                <div class="absolute bg-black/50 box-border z-[1] rounded-[20px] inset-[0%]"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="items-start box-border flex flex-col justify-start max-w-full mb-10 md:max-w-[46%] md:mb-0">
+                        <h1 class="text-[40px] font-bold box-border leading-[48px] md:text-[56px] md:leading-[67.2px]">
+                            <sup class="relative text-3xl box-border leading-[0px] top-[-15px] md:text-[42px] md:top-[-21px]">Enrollment Steps</sup>
+                        </h1>
+                        <p class="box-border mb-6">
+                            Here at Partners In Excellence, we guarantee a &quot;life changing experience!&quot; We look forward to hearing more about your child and family and hope that our program will be a great fit for your needs.
+                        </p>
+                        <div class="box-border mt-6 md:mt-8">
+                            <div class="items-center box-border gap-x-4 flex flex-wrap gap-y-4">
+                                <a href="#payment" class="text-white font-bold bg-green-700 box-border block text-center border border-cyan-500 px-6 py-3 rounded-[10px] border-solid">Payment Options</a>
+                                <a href="#schedule" class="text-white font-bold bg-cyan-500 box-border block text-center border border-cyan-500 px-6 py-3 rounded-[10px] border-solid">Schedule Options</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bg-lime-400 box-border">
+            <div class="box-border px-[5%]">
+                <div class="box-border max-w-screen-xl w-full mx-auto">
+                    <div class="text-black box-border py-16 md:py-28">
+                        <div class="box-border">
+                            <div class="relative items-start box-border gap-x-6 grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] justify-items-center gap-y-6 md:gap-x-32 md:grid-cols-[1fr_1fr] md:gap-y-32">
+                                <div class="relative box-border z-[1] pr-0 top-0 md:sticky md:z-auto md:pr-4 md:top-20">
+                                    <div class="relative box-border z-[2] mb-5 md:mb-8"><h2 class="text-white text-4xl font-bold box-border leading-[43.2px] text-left md:text-5xl md:leading-[57.6px]">Enrollment Steps</h2></div>
+                                    <p class="text-white text-base box-border leading-6 text-left md:text-lg md:leading-[27px]">
+                                        Here at Partners in Excellence, we guarantee “a life changing experience!”  We look forward to hearing more about your child and family and hope that our program will be a great fit for your needs.
+                                    </p>
+                                </div>
+                                <div
+                                    class="absolute items-center box-border flex flex-col col-end-2 col-start-1 row-end-3 row-start-2 h-full justify-self-start w-8 z-0 md:col-end-auto md:col-start-auto md:row-end-auto md:row-start-auto md:justify-self-auto"
+                                >
+                                    <div class="absolute bg-[linear-gradient(rgb(255,255,255),rgba(0,0,0,0))] box-border h-16 w-1 z-[1]"></div>
+                                    <div class="sticky bg-white box-border h-[500px] mt-[-500px] w-[3px] z-0 top-0"></div>
+                                    <div class="bg-zinc-300 box-border h-full w-[3px]"></div>
+                                    <div class="absolute bg-[linear-gradient(rgba(255,255,255,0),rgb(255,255,255))] box-border h-16 w-1 z-[1] bottom-[0%]"></div>
+                                    <div class="box-border"></div>
+                                </div>
+                                <div class="box-border gap-x-8 grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] gap-y-8 md:gap-x-20 md:gap-y-20">
+                                    <div class="relative box-border gap-x-4 auto-cols-[1fr] grid-cols-[max-content_1fr] grid-rows-[auto] gap-y-4">
+                                        <div class="absolute items-start box-border flex h-full justify-center w-8 z-[1] ml-0 md:w-32 md:-ml-32">
+                                            <div class="items-center bg-zinc-300 shadow-[rgb(255,255,255)_0px_0px_0px_8px] box-border h-[15px] justify-center w-[15px] z-[2] mt-9 rounded-[100%] md:mt-12"></div>
+                                        </div>
+                                        <div
+                                            class="bg-white box-border auto-cols-[1fr] grid-cols-[48px_1fr] grid-rows-[auto_auto] z-[2] border border-red-600 overflow-hidden ml-12 p-6 rounded-[10px] border-solid md:grid-cols-[1fr_192px_1fr] md:grid-rows-[auto] md:ml-0 md:p-8"
+                                        >
+                                            <div class="box-border mb-3 md:mb-8"><h3 class="text-[32px] font-bold box-border leading-[38.4px] md:text-[40px] md:leading-[48px]">Step 1</h3></div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <h4 class="text-xl font-bold box-border leading-7 md:text-2xl md:leading-[33.6px]"><strong class="text-xl box-border leading-7 md:text-2xl md:leading-[33.6px]">Call or Contact</strong></h4>
+                                            </div>
+                                            <div class="box-border mt-5 md:mt-8">
+                                                <div class="box-border gap-x-[5px] grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] gap-y-[5px] mb-4 md:grid-cols-[1fr_1fr]">
+                                                    <div class="self-center border-r-red-600 box-border pr-[5px] border-r">
+                                                        <div class="box-border mb-3 md:mb-8"><p class="font-semibold box-border">Arden Hills, Burnsville or Minnetonka</p></div>
+                                                        <a
+                                                            href="#"
+                                                            class="text-slate-900 text-[11.2px] font-semibold items-center box-border gap-x-0 flex justify-start leading-[11.2px] max-w-full gap-y-0 text-center py-1 rounded-[10px] md:text-[13.6px] md:gap-x-2 md:leading-[13.6px] md:gap-y-2"
+                                                        >
+                                                            <div class="text-[11.2px] box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">
+                                                                <strong class="text-[11.2px] font-bold box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">952-818-2876</strong>
+                                                            </div>
+                                                            <div
+                                                                class="text-[11.2px] items-center box-border flex flex-col h-[12.8px] justify-center leading-[11.2px] w-[12.8px] md:text-[13.6px] md:h-4 md:leading-[13.6px] md:w-4 before:accent-auto before:text-slate-900 before:table before:text-[11.2px] before:not-italic before:normal-nums before:font-semibold before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[11.2px] before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-[13.6px] before:md:leading-[13.6px] after:accent-auto after:clear-both after:text-slate-900 after:table after:text-[11.2px] after:not-italic after:normal-nums after:font-semibold after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[11.2px] after:list-outside after:list-disc after:text-center after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-[13.6px] after:md:leading-[13.6px]"
+                                                            >
+                                                                <img
+                                                                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-11.svg"
+                                                                    alt="Icon"
+                                                                    class="text-[11.2px] box-border h-full leading-[11.2px] w-full md:text-[13.6px] md:leading-[13.6px]"
+                                                                />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="box-border pl-[15px]">
+                                                        <div class="box-border mb-3 md:mb-8"><p class="font-semibold box-border">La Crosse, WI or Winona, MN</p></div>
+                                                        <a
+                                                            href="#"
+                                                            class="text-slate-900 text-[11.2px] font-semibold items-center box-border gap-x-0 flex justify-start leading-[11.2px] max-w-full gap-y-0 text-center py-1 rounded-[10px] md:text-[13.6px] md:gap-x-2 md:leading-[13.6px] md:gap-y-2"
+                                                        >
+                                                            <div class="text-[11.2px] box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">
+                                                                <strong class="text-[11.2px] font-bold box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">608-785-4100</strong>
+                                                            </div>
+                                                            <div
+                                                                class="text-[11.2px] items-center box-border flex flex-col h-[12.8px] justify-center leading-[11.2px] w-[12.8px] md:text-[13.6px] md:h-4 md:leading-[13.6px] md:w-4 before:accent-auto before:text-slate-900 before:table before:text-[11.2px] before:not-italic before:normal-nums before:font-semibold before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[11.2px] before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-[13.6px] before:md:leading-[13.6px] after:accent-auto after:clear-both after:text-slate-900 after:table after:text-[11.2px] after:not-italic after:normal-nums after:font-semibold after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[11.2px] after:list-outside after:list-disc after:text-center after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-[13.6px] after:md:leading-[13.6px]"
+                                                            >
+                                                                <img
+                                                                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-11-1.svg"
+                                                                    alt="Icon"
+                                                                    class="text-[11.2px] box-border h-full leading-[11.2px] w-full md:text-[13.6px] md:leading-[13.6px]"
+                                                                />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <p class="text-sm box-border leading-[21px]">This initial phone call typically takes 20-30 minutes. Please be prepared to share:<br class="box-border" /></p>
+                                            </div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <ul role="list" class="box-border my-4 pl-5">
+                                                    <li class="text-sm box-border leading-[19.6px] text-left my-2 px-2">Your contact information</li>
+                                                    <li class="text-sm box-border leading-[19.6px] text-left my-2 px-2">Your child’s information</li>
+                                                    <li class="text-sm box-border leading-[19.6px] text-left my-2 px-2">
+                                                        Brief medical history including information on the child’s autism diagnosis, school or other provider information, and funding information
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <p class="text-sm box-border leading-[21px]">
+                                                    If you do not reach us via phone please leave a voicemail, or complete our contact form and a member of our intake team will be in touch with you.
+                                                </p>
+                                            </div>
+                                            <div class="box-border mt-6 md:mt-8">
+                                                <div class="items-center box-border gap-x-4 flex flex-wrap gap-y-4">
+                                                    <a href="/contact-us" class="text-white font-bold bg-sky-600 box-border block text-center border border-cyan-500 px-6 py-3 rounded-[10px] border-solid">Contact Us</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative box-border gap-x-4 auto-cols-[1fr] grid-cols-[max-content_1fr] grid-rows-[auto] gap-y-4">
+                                        <div class="absolute items-start box-border flex h-full justify-center w-8 z-[1] ml-0 md:w-32 md:-ml-32">
+                                            <div class="items-center bg-zinc-300 shadow-[rgb(255,255,255)_0px_0px_0px_8px] box-border h-[15px] justify-center w-[15px] z-[2] mt-9 rounded-[100%] md:mt-12"></div>
+                                        </div>
+                                        <div
+                                            class="bg-white box-border auto-cols-[1fr] grid-cols-[48px_1fr] grid-rows-[auto_auto] z-[2] border border-red-600 overflow-hidden ml-12 p-6 rounded-[10px] border-solid md:grid-cols-[1fr_192px_1fr] md:grid-rows-[auto] md:ml-0 md:p-8"
+                                        >
+                                            <div class="box-border mb-3 md:mb-8"><h3 class="text-[32px] font-bold box-border leading-[38.4px] md:text-[40px] md:leading-[48px]">Step 2</h3></div>
+                                            <div class="box-border mb-3 md:mb-8"><h4 class="text-xl font-bold box-border leading-7 md:text-2xl md:leading-[33.6px]">Complete Application</h4></div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <p class="text-sm box-border leading-[21px]">
+                                                    Complete the enrollment packet in entirety within 30 calendar days of the initial intake phone call. This helps us get to know your child as well as request authorization for services.
+                                                    <br class="box-border" />
+                                                    <br class="box-border" />
+                                                    Along with this packet, copies of the child’s previous/current evaluations and services are required. Once the enrollment application is complete, the intake team will communicate with you
+                                                    regarding which documents are needed. <br class="box-border" />
+                                                    <br class="box-border" />
+                                                    The intake team can also send releases of information to collect documents if you do not have copies.<br class="box-border" />
+                                                </p>
+                                            </div>
+                                            <div class="box-border mt-6 md:mt-8">
+                                                <div class="items-center box-border gap-x-4 flex flex-wrap gap-y-4">
+                                                    <a
+                                                        href="https://cdn.prod.website-files.com/66c385b3874dcd29eadf8775/677453df08dbbfb13a922e6f_Enrollment-Application410.pdf"
+                                                        class="text-white font-bold bg-sky-600 box-border block text-center border border-cyan-500 px-6 py-3 rounded-[10px] border-solid"
+                                                    >
+                                                        Download Application
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative box-border gap-x-4 auto-cols-[1fr] grid-cols-[max-content_1fr] grid-rows-[auto] gap-y-4">
+                                        <div class="absolute items-start box-border flex h-full justify-center w-8 z-[1] ml-0 md:w-32 md:-ml-32">
+                                            <div class="items-center bg-zinc-300 shadow-[rgb(255,255,255)_0px_0px_0px_8px] box-border h-[15px] justify-center w-[15px] z-[2] mt-9 rounded-[100%] md:mt-12"></div>
+                                        </div>
+                                        <div
+                                            class="bg-white box-border auto-cols-[1fr] grid-cols-[48px_1fr] grid-rows-[auto_auto] z-[2] border border-red-600 overflow-hidden ml-12 p-6 rounded-[10px] border-solid md:grid-cols-[1fr_192px_1fr] md:grid-rows-[auto] md:ml-0 md:p-8"
+                                        >
+                                            <div class="box-border mb-3 md:mb-8"><h3 class="text-[32px] font-bold box-border leading-[38.4px] md:text-[40px] md:leading-[48px]">Step 3</h3></div>
+                                            <div class="box-border mb-3 md:mb-8"><h4 class="text-xl font-bold box-border leading-7 md:text-2xl md:leading-[33.6px]">Submit Application</h4></div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <p class="text-sm box-border leading-[21px]">Provide the information to us. You can drop off the packet, mail, fax or email.<br class="box-border" /></p>
+                                            </div>
+                                            <div class="box-border mt-5 md:mt-8">
+                                                <div class="box-border gap-x-[5px] grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] gap-y-[5px] mb-4 md:grid-cols-[1fr_1fr]">
+                                                    <div class="self-center border-r-red-600 box-border pr-[5px] border-r">
+                                                        <div class="box-border mb-3 md:mb-8"><p class="font-semibold box-border">Arden Hills, Burnsville or Minnetonka</p></div>
+                                                        <div class="box-border mb-3 md:mb-8">
+                                                            <p class="text-sm box-border leading-[21px]">
+                                                                Attention: Intake staff<br class="box-border" />
+                                                                14301 Ewing Ave.<br class="box-border" />
+                                                                Burnsville, MN 55306<br class="box-border" />
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-border pl-[15px]">
+                                                        <div class="box-border mb-3 md:mb-8">
+                                                            <a
+                                                                href="#"
+                                                                class="text-slate-900 text-[11.2px] font-semibold items-center box-border gap-x-0 flex justify-start leading-[11.2px] max-w-full gap-y-0 text-center py-1 rounded-[10px] md:text-[13.6px] md:gap-x-2 md:leading-[13.6px] md:gap-y-2"
+                                                            >
+                                                                <div class="text-[11.2px] box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">
+                                                                    <strong class="text-[11.2px] font-bold box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">fax: 952-746-6131</strong>
+                                                                </div>
+                                                                <div
+                                                                    class="text-[11.2px] items-center box-border flex flex-col h-[12.8px] justify-center leading-[11.2px] w-[12.8px] md:text-[13.6px] md:h-4 md:leading-[13.6px] md:w-4 before:accent-auto before:text-slate-900 before:table before:text-[11.2px] before:not-italic before:normal-nums before:font-semibold before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[11.2px] before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-[13.6px] before:md:leading-[13.6px] after:accent-auto after:clear-both after:text-slate-900 after:table after:text-[11.2px] after:not-italic after:normal-nums after:font-semibold after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[11.2px] after:list-outside after:list-disc after:text-center after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-[13.6px] after:md:leading-[13.6px]"
+                                                                >
+                                                                    <img
+                                                                        src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-11-2.svg"
+                                                                        alt="Icon"
+                                                                        class="text-[11.2px] box-border h-full leading-[11.2px] w-full md:text-[13.6px] md:leading-[13.6px]"
+                                                                    />
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <a
+                                                            href="#"
+                                                            class="text-slate-900 text-[11.2px] font-semibold items-center box-border gap-x-0 flex justify-start leading-[11.2px] max-w-full gap-y-0 text-center py-1 rounded-[10px] md:text-[13.6px] md:gap-x-2 md:leading-[13.6px] md:gap-y-2"
+                                                        >
+                                                            <div class="text-[11.2px] box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">
+                                                                <strong class="text-[11.2px] font-bold box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">intake@partnersmn.com</strong>
+                                                            </div>
+                                                            <div
+                                                                class="text-[11.2px] items-center box-border flex flex-col h-[12.8px] justify-center leading-[11.2px] w-[12.8px] md:text-[13.6px] md:h-4 md:leading-[13.6px] md:w-4 before:accent-auto before:text-slate-900 before:table before:text-[11.2px] before:not-italic before:normal-nums before:font-semibold before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[11.2px] before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-[13.6px] before:md:leading-[13.6px] after:accent-auto after:clear-both after:text-slate-900 after:table after:text-[11.2px] after:not-italic after:normal-nums after:font-semibold after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[11.2px] after:list-outside after:list-disc after:text-center after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-[13.6px] after:md:leading-[13.6px]"
+                                                            >
+                                                                <img
+                                                                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-11-3.svg"
+                                                                    alt="Icon"
+                                                                    class="text-[11.2px] box-border h-full leading-[11.2px] w-full md:text-[13.6px] md:leading-[13.6px]"
+                                                                />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="box-border mt-5 md:mt-8">
+                                                <div class="box-border gap-x-[5px] grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] gap-y-[5px] mb-4 md:grid-cols-[1fr_1fr]">
+                                                    <div class="self-center border-r-red-600 box-border pr-[5px] border-r">
+                                                        <div class="box-border mb-3 md:mb-8"><p class="font-semibold box-border">La Crosse, WI or Winona, MN</p></div>
+                                                        <div class="box-border mb-3 md:mb-8">
+                                                            <p class="text-sm box-border leading-[21px]">
+                                                                Attention: Intake staff<br class="box-border" />
+                                                                901 Caledonia StreetLa Crosse, WI 54603<br class="box-border" />
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="box-border pl-[15px]">
+                                                        <div class="box-border mb-3 md:mb-8">
+                                                            <a
+                                                                href="#"
+                                                                class="text-slate-900 text-[11.2px] font-semibold items-center box-border gap-x-0 flex justify-start leading-[11.2px] max-w-full gap-y-0 text-center py-1 rounded-[10px] md:text-[13.6px] md:gap-x-2 md:leading-[13.6px] md:gap-y-2"
+                                                            >
+                                                                <div class="text-[11.2px] box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">
+                                                                    <strong class="text-[11.2px] font-bold box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">fax: 608-785-4101</strong>
+                                                                </div>
+                                                                <div
+                                                                    class="text-[11.2px] items-center box-border flex flex-col h-[12.8px] justify-center leading-[11.2px] w-[12.8px] md:text-[13.6px] md:h-4 md:leading-[13.6px] md:w-4 before:accent-auto before:text-slate-900 before:table before:text-[11.2px] before:not-italic before:normal-nums before:font-semibold before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[11.2px] before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-[13.6px] before:md:leading-[13.6px] after:accent-auto after:clear-both after:text-slate-900 after:table after:text-[11.2px] after:not-italic after:normal-nums after:font-semibold after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[11.2px] after:list-outside after:list-disc after:text-center after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-[13.6px] after:md:leading-[13.6px]"
+                                                                >
+                                                                    <img
+                                                                        src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-11-4.svg"
+                                                                        alt="Icon"
+                                                                        class="text-[11.2px] box-border h-full leading-[11.2px] w-full md:text-[13.6px] md:leading-[13.6px]"
+                                                                    />
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <a
+                                                            href="#"
+                                                            class="text-slate-900 text-[11.2px] font-semibold items-center box-border gap-x-0 flex justify-start leading-[11.2px] max-w-full gap-y-0 text-center py-1 rounded-[10px] md:text-[13.6px] md:gap-x-2 md:leading-[13.6px] md:gap-y-2"
+                                                        >
+                                                            <div class="text-[11.2px] box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">
+                                                                <strong class="text-[11.2px] font-bold box-border leading-[11.2px] md:text-[13.6px] md:leading-[13.6px]">intake@partnersmn.com</strong>
+                                                            </div>
+                                                            <div
+                                                                class="text-[11.2px] items-center box-border flex flex-col h-[12.8px] justify-center leading-[11.2px] w-[12.8px] md:text-[13.6px] md:h-4 md:leading-[13.6px] md:w-4 before:accent-auto before:text-slate-900 before:table before:text-[11.2px] before:not-italic before:normal-nums before:font-semibold before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[11.2px] before:list-outside before:list-disc before:text-center before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-[13.6px] before:md:leading-[13.6px] after:accent-auto after:clear-both after:text-slate-900 after:table after:text-[11.2px] after:not-italic after:normal-nums after:font-semibold after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[11.2px] after:list-outside after:list-disc after:text-center after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-[13.6px] after:md:leading-[13.6px]"
+                                                            >
+                                                                <img
+                                                                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-11-5.svg"
+                                                                    alt="Icon"
+                                                                    class="text-[11.2px] box-border h-full leading-[11.2px] w-full md:text-[13.6px] md:leading-[13.6px]"
+                                                                />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="relative box-border gap-x-4 auto-cols-[1fr] grid-cols-[max-content_1fr] grid-rows-[auto] gap-y-4">
+                                        <div class="absolute items-start box-border flex h-full justify-center w-8 z-[1] ml-0 md:w-32 md:-ml-32">
+                                            <div class="items-center bg-zinc-300 shadow-[rgb(255,255,255)_0px_0px_0px_8px] box-border h-[15px] justify-center w-[15px] z-[2] mt-9 rounded-[100%] md:mt-12"></div>
+                                        </div>
+                                        <div
+                                            class="bg-white box-border auto-cols-[1fr] grid-cols-[48px_1fr] grid-rows-[auto_auto] z-[2] border border-red-600 overflow-hidden ml-12 p-6 rounded-[10px] border-solid md:grid-cols-[1fr_192px_1fr] md:grid-rows-[auto] md:ml-0 md:p-8"
+                                        >
+                                            <div class="box-border mb-3 md:mb-8"><h3 class="text-[32px] font-bold box-border leading-[38.4px] md:text-[40px] md:leading-[48px]">Step 4</h3></div>
+                                            <div class="box-border mb-3 md:mb-8"><h4 class="text-xl font-bold box-border leading-7 md:text-2xl md:leading-[33.6px]">Review &amp; Acceptance</h4></div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <p class="text-sm box-border leading-[21px]">
+                                                    The intake team review your information, conduct a benefit check, and contact you if anything is missing or incomplete. Once documents are reviewed and funding is established, your child
+                                                    will be placed on the waitlist until we have a potential opening.<br class="box-border" />
+                                                </p>
+                                            </div>
+                                            <div class="box-border mb-3 md:mb-8">
+                                                <p class="text-sm box-border leading-[21px]">
+                                                    <strong class="font-bold box-border"><em class="italic box-border">Please Note: </em> </strong>
+                                                    <em class="italic box-border">
+                                                        This is an enrollment application and does not guarantee placement at Partners In Excellence. Additionally, we do not have personnel that are qualified to work with children that have
+                                                        any additional major medical conditions such as blindness, uncontrolled seizures, severe cognitive or motor impairment, significant hearing loss, or extremely aggressive behaviors.
+                                                        Occasionally, we do accept children with additional diagnoses if it is possible to work closely with other professionals that can address your child’s additional needs.
+                                                    </em>
+                                                    <br class="box-border" />
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="relative bg-zinc-100 box-border md:static">
+            <div class="box-border px-[5%]">
+                <div class="box-border max-w-screen-xl w-full mx-auto">
+                    <div class="text-black box-border py-16 md:py-28">
+                        <div class="box-border">
+                            <div class="box-border mb-12">
+                                <div class="items-start box-border gap-x-5 grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] gap-y-8 mx-auto md:gap-x-20">
+                                    <div class="relative self-center box-border justify-self-center z-[4] md:static md:z-auto">
+                                        <div class="relative box-border z-[2] mb-5 md:mb-8"><h1 class="font-light box-border text-center capitalize">Autism Therapists From Partners In Excellence</h1></div>
+                                        <h2 class="text-4xl font-bold box-border leading-[43.2px] md:text-5xl md:leading-[57.6px]">Our Happy Clients</h2>
+                                    </div>
+                                    <div class="self-center box-border justify-self-center">
+                                        <p class="box-border">Hear straight from the people who have changed their child&#39;s lives by enrolling with Partner&#39;s in Excellence.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="relative box-border w-full pt-[56.1702%] rounded-[20px] before:accent-auto before:text-black before:table before:text-base before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-6 before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-black after:table after:text-base after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-6 after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/676da72d848816903d6d76cc_divider.svg" alt="" class="relative box-border inline-block max-w-full align-top w-full" />
+        <section class="bg-white box-border">
+            <div class="box-border px-[5%]">
+                <div class="box-border max-w-screen-xl w-full mx-auto">
+                    <div class="text-black box-border py-16 md:py-28">
+                        <div class="box-border">
+                            <div class="box-border mb-12">
+                                <div class="box-border max-w-screen-md w-full mx-auto">
+                                    <div class="relative box-border z-[2] mb-5 md:mb-8"><h2 class="text-4xl font-bold box-border leading-[43.2px] text-center md:text-5xl md:leading-[57.6px]">Schedule Options</h2></div>
+                                    <p class="box-border text-center">
+                                        Through our assessment process, Partners in Excellence will provide a recommendation of the number of hours per week that a child should receive. This is individualized based on the child’s current
+                                        needs.  Our treatment team will work with your family to determine the child’s schedule. <br class="box-border" />
+                                        Our buildings are open 8am to 5pm, Monday through Friday, year round.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <header class="bg-yellow-400 box-border">
+            <div class="box-border px-[5%]">
+                <div class="box-border max-w-screen-xl w-full mx-auto">
+                    <div class="text-black box-border py-16 md:py-28">
+                        <div class="box-border">
+                            <div class="box-border mb-12">
+                                <div class="items-start box-border gap-x-5 grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] gap-y-5 md:gap-x-20 md:grid-cols-[1fr_1fr] md:gap-y-16">
+                                    <div class="box-border"><h1 class="text-[40px] font-bold box-border leading-[48px] md:text-[56px] md:leading-[67.2px]">Payment Options</h1></div>
+                                    <div class="box-border">
+                                        <p class="box-border">
+                                            Our Intake staff are able to assist you with navigating both the enrollment process as well as your options for treatment funding. Please call the intake department for more information and
+                                            personal assistance at <strong class="font-bold box-border">(952)-746-5350 option 2</strong> .<br class="box-border" />
+                                            <br class="box-border" />
+                                            ‍<strong class="font-bold box-border">Commercial Insurance:</strong> Partners In Excellence is credentialed and identified as a provider with many insurance companies.  The Partners’ Intake staff
+                                            will collect a copy of your child’s insurance card and complete a benefit check.  Once that is completed, staff will be able to provide information on your benefits and assist you with questions
+                                            related to your funding.<br class="box-border" />
+                                            <br class="box-border" />
+                                            ‍<strong class="font-bold box-border">Medical Assistance (MA): </strong> Partners is a Medical Assistance provider in both Minnesota and Wisconsin.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="box-border w-full overflow-hidden">
+                                <img
+                                    sizes="(max-width: 1920px) 100vw, 1920px"
+                                    alt=""
+                                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/6786e4d9a793fad40533f1cb_home-4.jpg"
+                                    class="aspect-video box-border inline-block h-full max-w-full object-cover w-full rounded-[25px]"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="relative text-white box-border mx-[5%] my-[3%]">
+            <div class="box-border px-[5%]">
+                <div class="box-border max-w-screen-xl w-full mx-auto">
+                    <div class="text-black box-border py-16 md:py-28">
+                        <div class="relative box-border z-[1]">
+                            <div class="box-border text-center">
+                                <div class="box-border max-w-screen-md w-full mx-auto">
+                                    <div class="relative box-border z-[2] mb-5 md:mb-8">
+                                        <h2 class="text-white text-4xl font-bold box-border leading-[43.2px] md:text-5xl md:leading-[57.6px]">Join a Team That Cares as Much as You Do</h2>
+                                    </div>
+                                    <p class="text-white text-base box-border leading-6 md:text-lg md:leading-[27px]">Help kids reach their potential while building a career you’re proud of.</p>
+                                    <div class="box-border mt-6 md:mt-8">
+                                        <div class="items-center box-border gap-x-4 flex flex-wrap justify-center gap-y-4">
+                                            <a href="/careers" class="text-white font-bold bg-red-600 box-border block border border-cyan-500 px-6 py-3 rounded-[10px] border-solid">Apply Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))] box-border z-0 rounded-[25px] inset-[0%]">
+                <div class="absolute bg-transparent bg-[linear-gradient(140deg,rgba(11,113,195,0.51),rgba(16,178,215,0.9))] box-border z-[1] rounded-[25px] inset-[0%]"></div>
+                <img
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    alt=""
+                    src="https://c.animaapp.com/md724wyb2BR0OR/assets/676ecaf344056695bda41634_all_services_page.webp"
+                    class="absolute box-border h-full max-w-full object-cover w-full rounded-[25px] inset-[0%]"
+                />
+            </div>
+        </section>
+        <section class="sticky bg-zinc-100 border-l-slate-900 border-r-slate-900 border-t-slate-900 box-border block z-[4] border-b bottom-0 md:relative md:bg-white md:hidden md:z-auto md:bottom-auto">
+            <div class="box-border px-[5%]">
+                <div class="items-center box-border flex flex-col justify-start text-center py-2 md:flex-row md:text-start md:py-3">
+                    <div class="items-start box-border flex basis-[0%] grow min-h-[auto] min-w-[auto] text-center mb-4 mx-auto md:items-center md:min-h-0 md:min-w-0 md:text-start md:ml-0 md:mr-8 md:mb-0">
+                        <div class="box-border hidden shrink-0 text-center mr-4 md:block md:text-start">
+                            <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/61f754bf565c727dd335ab33_icon.svg" alt="" class="box-border inline-block h-8 max-w-full text-center w-8 md:text-start" />
+                        </div>
+                        <div class="box-border min-h-[auto] min-w-[auto] text-center md:min-h-0 md:min-w-0 md:text-start"><div class="font-semibold box-border text-center md:text-start">Contact Us Now</div></div>
+                    </div>
+                    <div class="box-border flex justify-center min-h-[auto] min-w-[auto] text-center md:justify-normal md:min-h-0 md:min-w-0 md:text-start">
+                        <div class="box-border min-h-[auto] min-w-[auto] text-center ml-0 mr-4 md:min-h-0 md:min-w-0 md:text-start md:ml-4 md:mr-0">
+                            <a
+                                href="/contact-us"
+                                class="text-white text-xs font-bold bg-sky-600 box-border inline-block leading-[18px] text-center border border-cyan-500 px-4 py-2 rounded-[10px] border-solid md:text-base md:leading-6 md:px-5"
+                            >
+                                Contact
+                            </a>
+                        </div>
+                        <div class="box-border min-h-[auto] min-w-[auto] text-center ml-0 md:min-h-0 md:min-w-0 md:text-start md:ml-4">
+                            <a
+                                href="tel:+19527465350"
+                                class="text-black text-xs font-bold bg-white box-border inline-block leading-[18px] text-center border px-4 py-2 rounded-[10px] border-solid border-white md:text-base md:leading-6 md:px-5"
+                            >
+                                952-746-5350
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="text-white bg-slate-900 box-border">
+            <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/676da72d848816903d6d76cc_divider-1.svg" alt="" class="relative box-border inline-block max-w-full align-top w-full" />
+            <div class="box-border px-[5%]">
+                <div class="box-border max-w-screen-xl w-full mx-auto">
+                    <div class="box-border pt-32 pb-8">
+                        <div class="box-border pb-12 md:pb-20">
+                            <div class="items-start box-border gap-x-8 grid auto-cols-[1fr] grid-cols-[1fr] grid-rows-[auto] gap-y-10 md:grid-cols-[1.25fr_1fr_1fr_1fr_1fr] md:gap-y-4">
+                                <a
+                                    href="#"
+                                    class="relative text-zinc-800 box-border block float-left col-end-[span_1] col-start-[span_1] row-end-[span_1] row-start-[span_1] md:col-end-auto md:col-start-auto md:row-end-auto md:row-start-auto"
+                                >
+                                    <img alt="" src="https://c.animaapp.com/md724wyb2BR0OR/assets/676d9bbbdaeb0f77dbb33b4f_logo-light.svg" class="box-border inline-block h-full max-w-full min-w-[50%] w-full pt-[10%]" />
+                                </a>
+                                <div class="box-border">
+                                    <div class="box-border mb-3 md:mb-8"><div class="text-cyan-500 font-semibold box-border">Hours</div></div>
+                                    <div class="items-start box-border flex flex-col auto-cols-[100%] grid-cols-[100%] grid-rows-[auto] justify-items-start">
+                                        <div class="relative box-border z-[2] mb-5 md:mb-8">
+                                            <p class="text-[14.4px] font-light box-border leading-[21.6px] text-left">
+                                                <strong class="font-bold box-border">Open: <br class="box-border" /> </strong> Mon. - Fri. <br class="box-border" />
+                                                8 AM - 5 PM
+                                            </p>
+                                        </div>
+                                        <div class="box-border">
+                                            <p class="text-[14.4px] font-light box-border leading-[21.6px] text-left"><strong class="font-bold box-border">Closed the Following: </strong> ‍</p>
+                                            <p class="box-border pt-4">
+                                                September 1 2025<br class="box-border" />
+                                                November 27 2025<br class="box-border" />
+                                                November 28 2025<br class="box-border" />
+                                                December 24 2025<br class="box-border" />
+                                                December 25 2025<br class="box-border" />
+                                                December 26 2025<br class="box-border" />
+                                                January 2 2026<br class="box-border" />
+                                                July 3 2026
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-border">
+                                    <div class="box-border">
+                                        <div class="box-border mb-3 md:mb-8"><div class="text-green-700 font-semibold box-border">More</div></div>
+                                        <div class="items-start box-border flex flex-col auto-cols-[100%] grid-cols-[100%] grid-rows-[auto] justify-items-start">
+                                            <a href="/about" class="text-sm box-border block leading-[21px] py-2">About Us</a>
+                                            <a href="/careers" class="text-sm box-border block leading-[21px] py-2">Careers</a>
+                                            <a href="/enrollment" class="text-sm box-border block leading-[21px] py-2">Enrollment</a>
+                                            <a href="/events" class="text-sm box-border block leading-[21px] py-2">Events</a>
+                                            <a href="/frequently-asked-questions" class="text-sm box-border block leading-[21px] py-2">FAQs</a>
+                                            <a href="/parent-resources" class="text-sm box-border block leading-[21px] py-2">Resources</a>
+                                            <a href="https://pie.promotionalresourcesinc.net/" class="text-sm box-border block leading-[21px] py-2">Store</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-border">
+                                    <div class="box-border mb-3 md:mb-8"><div class="text-lime-400 font-semibold box-border">Services</div></div>
+                                    <div class="items-start box-border flex flex-col auto-cols-[100%] grid-cols-[100%] grid-rows-[auto] justify-items-start">
+                                        <a href="/aba-abv" class="text-sm box-border block leading-[21px] py-2">ABA/AVB</a>
+                                        <a href="/bridges" class="text-sm box-border block leading-[21px] py-2">Bridges</a>
+                                        <a href="/feeding-therapy" class="text-sm box-border block leading-[21px] py-2">Feeding Therapy</a>
+                                        <a href="/speech-language-pathology" class="text-sm box-border block leading-[21px] py-2">Speech &amp; Language Pathology</a>
+                                        <a href="/occupational-therapy" class="text-sm box-border block leading-[21px] py-2">Occupational Therapy</a>
+                                        <a href="/case-management" class="text-sm box-border block leading-[21px] py-2">Case Management</a>
+                                    </div>
+                                </div>
+                                <div class="box-border">
+                                    <div class="box-border mb-3 md:mb-8"><div class="text-red-600 font-semibold box-border">Locations</div></div>
+                                    <div class="items-start box-border flex flex-col auto-cols-[100%] grid-cols-[100%] grid-rows-[auto] justify-items-start">
+                                        <a href="/locations" class="text-sm box-border block leading-[21px] py-2">Arden Hills</a>
+                                        <a href="/locations" class="text-sm box-border block leading-[21px] py-2">Burnsville</a>
+                                        <a href="/locations" class="text-sm box-border block leading-[21px] py-2">Minnetonka</a>
+                                        <a href="/locations" class="text-sm box-border block leading-[21px] py-2">LaCrosse</a>
+                                        <a href="/locations" class="text-sm box-border block leading-[21px] py-2">Winona</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-yellow-400 box-border h-px w-full"></div>
+                        <div class="box-border pt-6 md:pt-8">
+                            <div class="items-start box-border flex flex-col-reverse justify-start pb-4 md:items-center md:flex-row md:justify-between md:pb-0">
+                                <div class="box-border gap-x-0 flex flex-col auto-cols-max grid-flow-row grid-cols-[max-content] grid-rows-[auto] justify-center gap-y-4 md:gap-x-6 md:flex-row md:grid-flow-col md:gap-y-0">
+                                    <div class="text-sm box-border col-end-2 col-start-1 row-end-5 row-start-4 leading-[21px] order-1 mt-4 md:col-end-auto md:col-start-auto md:row-end-auto md:row-start-auto md:order-none md:mt-0">
+                                        © 2025 Partners. All rights reserved.
+                                    </div>
+                                    <a href="https://feedbackwrench.com" class="text-sm font-light box-border block leading-[21px]">Website by Feedbackwrench</a>
+                                    <a href="/privacypolicy" class="text-sm font-light box-border block leading-[21px]">Privacy Policy</a>
+                                    <a href="/terms-of-use" class="text-sm font-light box-border block leading-[21px]">Terms of Use</a>
+                                </div>
+                                <div class="items-start box-border gap-x-3 flex auto-cols-max grid-flow-col grid-cols-[max-content] grid-rows-[auto] justify-items-start gap-y-0 mb-8 md:mb-0">
+                                    <div class="items-start box-border gap-x-3 grid auto-cols-max grid-flow-col grid-cols-[max-content] grid-rows-[auto] justify-items-start gap-y-0">
+                                        <a href="https://www.facebook.com/partnersmn" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                            <div
+                                                class="text-blue-600 text-[15px] box-border h-6 leading-[22.5px] w-6 md:text-sm md:leading-[21px] before:accent-auto before:text-blue-600 before:table before:text-[15px] before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[22.5px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans before:md:text-sm before:md:leading-[21px] after:accent-auto after:clear-both after:text-blue-600 after:table after:text-[15px] after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[22.5px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans after:md:text-sm after:md:leading-[21px]"
+                                            >
+                                                <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-3-1.svg" alt="Icon" class="text-[15px] box-border h-full leading-[22.5px] w-full md:text-sm md:leading-[21px]" />
+                                            </div>
+                                        </a>
+                                        <a href="https://www.instagram.com/partners_in_excellence/" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                            <div
+                                                class="text-fuchsia-700 box-border h-6 w-6 before:accent-auto before:text-fuchsia-700 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-fuchsia-700 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                            >
+                                                <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-4-1.svg" alt="Icon" class="box-border h-6 w-6" />
+                                            </div>
+                                        </a>
+                                        <a href="#" class="text-black text-sm items-center box-border hidden leading-[21px] max-w-full">
+                                            <div
+                                                class="text-sky-500 box-border h-6 w-6 before:accent-auto before:text-sky-500 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-sky-500 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                            >
+                                                <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-5-1.svg" alt="Icon" class="box-border h-full w-full" />
+                                            </div>
+                                        </a>
+                                        <a href="https://www.linkedin.com/company/partners-in-excellence/" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                            <div
+                                                class="text-sky-600 box-border h-6 w-6 before:accent-auto before:text-sky-600 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-sky-600 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                            >
+                                                <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-6-1.svg" alt="Icon" class="box-border h-6 w-6" />
+                                            </div>
+                                        </a>
+                                        <a href="https://www.youtube.com/@partnersmn2539" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                            <div
+                                                class="text-red-600 box-border h-6 w-6 before:accent-auto before:text-red-600 before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-red-600 after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                            >
+                                                <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-7-1.svg" alt="Icon" class="box-border h-full w-full" />
+                                            </div>
+                                        </a>
+                                        <a href="https://www.tiktok.com/@partners_in_excellence" class="text-black text-sm items-center box-border flex leading-[21px] max-w-full">
+                                            <div
+                                                class="text-white box-border h-6 w-6 before:accent-auto before:text-white before:table before:text-sm before:not-italic before:normal-nums before:font-normal before:col-end-2 before:col-start-1 before:row-end-2 before:row-start-1 before:tracking-[normal] before:leading-[21px] before:list-outside before:list-disc before:text-start before:indent-[0px] before:normal-case before:visible before:border-separate before:font-open_sans after:accent-auto after:clear-both after:text-white after:table after:text-sm after:not-italic after:normal-nums after:font-normal after:col-end-2 after:col-start-1 after:row-end-2 after:row-start-1 after:tracking-[normal] after:leading-[21px] after:list-outside after:list-disc after:text-start after:indent-[0px] after:normal-case after:visible after:border-separate after:font-open_sans"
+                                            >
+                                                <img src="https://c.animaapp.com/md724wyb2BR0OR/assets/icon-12.svg" alt="Icon" class="box-border h-full w-full" />
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
